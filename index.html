@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="NOVA — بوابة بحث عربية سريعة وأنيقة" />
+    <title>NOVA | بحث ذكي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="https://cse.google.com/cse.js?cx=216884b562c4a4d87"></script>
+    <script async src="https://cse.google.com/cse.js?cx=216884b562c4a4d87"></script>
+    <style>
+      .provider-select{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:700;outline:0;cursor:pointer;margin:0 8px}.results-section{max-width:1052px;margin:0 auto 70px;padding:0 24px}.results-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:22px}.results-heading h2{margin:12px 0 0;font-size:28px}.results-heading .eyebrow{justify-content:flex-start}.results-heading>span{font-size:12px;color:var(--muted)}.results-list{display:grid;gap:14px}.result-card{display:block;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:19px 22px;text-decoration:none}.result-card cite{display:block;color:#3d956f;font-size:11px;direction:ltr;text-align:right;margin-bottom:7px}.result-card h3{color:var(--blue);font-size:17px;margin:0 0 7px}.result-card p{color:var(--muted);font-size:13px;line-height:1.8;margin:0}.loading{color:var(--muted);text-align:center;padding:30px}
+    </style>
+    <style>
+      .site-viewer{max-width:1052px;margin:0 auto 70px;padding:0 24px}.viewer-bar{display:flex;align-items:center;gap:12px;padding:10px 14px;background:#202b43;color:#fff;border-radius:14px 14px 0 0;font-size:12px}.viewer-bar button,.viewer-bar a{border:0;background:transparent;color:#fff;cursor:pointer;text-decoration:none}.viewer-bar span{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;direction:ltr;text-align:left}.site-viewer iframe{width:100%;height:680px;border:1px solid #e6ebf2;border-top:0;background:#fff;border-radius:0 0 14px 14px}
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="NOVA الرئيسية"><span class="brand-mark">✦</span> نوفا</a>
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
+        <a href="/important-links">روابط مهمة</a>
+        <a href="#about">عن نوفا</a>
+        <a href="#features">المزايا</a>
+        <button id="themeToggle" class="icon-button" aria-label="تغيير المظهر">☼</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div>
+        <div class="hero-content">
+          <div class="eyebrow"><span></span> بحث عربي أسرع وأبسط</div>
+          <h1 id="hero-title">اكتشف العالم<br /><em>بطريقتك.</em></h1>
+          <p class="hero-copy">ابحث عن أي شيء، واحصل على نتائج واضحة وسريعة من مكان واحد.</p>
+
+          <form id="searchForm" class="search-box" autocomplete="off">
+            <span class="search-icon">⌕</span>
+            <input id="searchInput" type="search" placeholder="اكتب ما تريد البحث عنه..." aria-label="عبارة البحث" />
+            <button class="clear-button" id="clearSearch" type="button" aria-label="مسح البحث">×</button>
+            <select id="providerSelect" class="provider-select" aria-label="خدمة البحث"><option value="duckduckgo">DuckDuckGo</option><option value="google">Google</option></select>
+            <button class="search-button" type="submit">ابحث</button>
+          </form>
+          <div class="quick-links" aria-label="اقتراحات سريعة">
+            <span>جرّب:</span>
+            <button type="button" data-query="أخبار اليوم">أخبار اليوم</button>
+            <button type="button" data-query="الطقس في عمّان">الطقس في عمّان</button>
+            <button type="button" data-query="تعلم البرمجة">تعلم البرمجة</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section" id="results" hidden aria-live="polite">
+        <div class="results-heading"><div><div class="eyebrow"><span></span> نتائج Google</div><h2 id="resultsTitle">نتائج البحث</h2></div><span id="resultsCount"></span></div>
+        <div id="resultsList" class="results-list"></div>
+      </section>
+
+      <section class="google-results" id="googleResults" hidden aria-label="بحث Google">
+        <div class="eyebrow"><span></span> بحث Google</div>
+        <div class="gcse-search"></div>
+      </section>
+
+      <section class="google-results" aria-label="بحث Google">
+        <div class="eyebrow"><span></span> بحث Google</div>
+        <div class="gcse-search"></div>
+      </section>
+
+      <section class="site-viewer" id="siteViewer" hidden aria-label="عارض المواقع">
+        <div class="viewer-bar"><button id="closeViewer" type="button">رجوع للنتائج</button><span id="viewerAddress"></span></div>
+        <iframe id="siteFrame" title="الموقع المفتوح داخل NOVA"></iframe>
+      </section>
+
+      <section class="content-grid" id="features">
+        <article class="feature-card accent-card"><div class="card-icon">⚡</div><h2>نتائج أسرع</h2><p>وصول مباشر إلى البحث بدون تعقيد أو خطوات إضافية.</p></article>
+        <article class="feature-card"><div class="card-icon">◉</div><h2>خصوصيتك أولًا</h2><p>لا نحفظ أي بيانات شخصية إلا عندما تختار الاشتراك بنفسك.</p></article>
+        <article class="feature-card"><div class="card-icon">✦</div><h2>تجربة عربية</h2><p>واجهة مصممة لتكون مريحة وواضحة على الهاتف والكمبيوتر.</p></article>
+      </section>
+
+      <section class="signup-section" id="about">
+        <div><div class="eyebrow"><span></span> ابقَ على اطلاع</div><h2>أرسل لك الجديد؟</h2><p>اشترك ببريدك الإلكتروني ليصلك كل ما هو مفيد. نقبل عناوين <strong>.com</strong> و<strong>.mom</strong>.</p></div>
+        <form id="signupForm" class="email-form" novalidate>
+          <input id="emailInput" type="email" placeholder="name@example.com" aria-label="البريد الإلكتروني" />
+          <button type="submit">اشتراك</button>
+          <small id="emailMessage" role="status"></small>
+        </form>
+      </section>
+    </main>
+    <footer><span>© 2026 NOVA</span><span>صُنع للبحث بشكل أفضل</span></footer>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

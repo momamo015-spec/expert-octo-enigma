@@ -1,0 +1,7 @@
+{
+  "name": "nova-google-search",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "desktop": "electron electron-main.mjs" },
+  "dependencies": { "dotenv": "^16.4.7", "electron": "^35.1.2" }
+}
